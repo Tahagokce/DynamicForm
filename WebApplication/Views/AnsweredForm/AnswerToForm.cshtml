@@ -1,0 +1,37 @@
+@model System.Collections.Generic.List<DataAccess.Question>
+@using System.Collections
+
+@{
+    int x = 0;
+}
+
+
+<form action="/AnsweredForm/AnswerToForm" method="post">
+
+    @foreach (var item in Model)
+    {
+        x++;
+
+        <br/>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <h4>@item.Question1</h4>
+                </ul>
+            </div>
+            <div class="card-body">
+
+
+                <div class="col-sm-4">
+                    <input type="hidden" value="@item.FormId" name="id">
+                    <input type="hidden" value="@item.Id" name="questionId">
+                    <input type="text" value="Cevap giriniz" class="form-control" name="reply">
+                </div>
+
+
+            </div>
+        </div>
+    }
+    <button type="submit" class="btn btn-primary">Cevapla</button>
+
+</form>

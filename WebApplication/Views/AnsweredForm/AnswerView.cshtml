@@ -1,0 +1,29 @@
+@model Entities.DTOs.AnswerViewDto
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        @foreach (var item in Model.Questions)
+        {
+
+            <th scope="col">@item.Question1</th>
+        }
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var replyList in Model.ReplyList)
+    {
+        
+        <tr>
+            <th scope="row">#</th>
+            
+            @foreach (var item in replyList)
+            {
+
+                <td scope="row">@item.Answer </td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>
